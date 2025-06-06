@@ -300,3 +300,98 @@ footer a:hover {
     font-size: 2rem;
   }
 }
+
+
+
+  /* prebooking */
+
+  /* ===========================
+   Prebooking Section Styling
+============================= */
+
+/* Grow on hover (subtle zoom) */
+.hover-grow {
+  transition: transform 0.2s ease-in-out;
+}
+.hover-grow:hover {
+  transform: scale(1.03);
+}
+
+/* Stronger scale with shadow */
+.hover-scale {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-scale:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Lift up slightly on hover */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Countdown box default style */
+.countdown-box {
+  transition: all 0.3s ease;
+  background-color: var(--bs-primary);
+  color: #fff;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  min-width: 60px;
+  border-radius: 0.5rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Countdown box hover effect */
+.countdown-box:hover {
+  background-color: #004085; /* darker blue fallback */
+  transform: scale(1.05);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Pulse animation for badge */
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Input focus highlight */
+.form-control:focus {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.15);
+}
+
+/* Badge style improvement (for LIMITED TIME OFFER) */
+.badge.bg-warning.text-dark {
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+/* Button interaction enhancements */
+button.btn:hover,
+.btn-primary:hover {
+  opacity: 0.95;
+  transform: scale(1.01);
+}
+
+/* Smooth transition for button & form elements */
+button,
+input,
+textarea,
+select {
+  transition: all 0.2s ease-in-out;
+}

@@ -27,6 +27,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="description" content="Simplify Restaurant Management with One-time Payment, Lifetime Access">
   <meta name="keywords" content="Online POS System, POS System, Digital Menu, BitesPOS">
   <meta name="author" content="BitesPOS">
+
+  <!-- Prebooking section -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -421,6 +424,180 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
     </section>
+
+
+
+
+<!-- Prebooking Section with Early Bird Offer -->
+<section class="py-5 py-md-7 bg-light position-relative overflow-hidden">
+  <!-- Decorative elements -->
+  <div class="position-absolute top-0 end-0 w-100 h-100 bg-primary-opacity-10" style="clip-path: polygon(100% 0, 100% 100%, 0 100%); z-index: 0;"></div>
+  <div class="position-absolute start-0 bottom-0" style="z-index: 0;">
+    <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="98" stroke="var(--primary)" stroke-width="2" stroke-dasharray="8 8"/>
+    </svg>
+  </div>
+
+  <div class="container position-relative" style="z-index: 1;">
+    <div class="text-center mb-5">
+      <span class="badge bg-warning text-dark fs-6 mb-3 animate-pulse">🔥 LIMITED TIME OFFER</span>
+      <h2 class="display-5 fw-bold mb-3">Early Access Prebooking Now Live!
+</h2>
+      <div class="d-flex justify-content-center mb-4">
+        <div class="countdown-box bg-primary text-white rounded-3 p-2 mx-1 hover-grow">
+          <div class="fs-3 fw-bold" id="countdown-hours">23</div>
+          <div class="small">HOURS</div>
+        </div>
+        <div class="countdown-box bg-primary text-white rounded-3 p-2 mx-1 hover-grow">
+          <div class="fs-3 fw-bold" id="countdown-minutes">59</div>
+          <div class="small">MINUTES</div>
+        </div>
+        <div class="countdown-box bg-primary text-white rounded-3 p-2 mx-1 hover-grow">
+          <div class="fs-3 fw-bold" id="countdown-seconds">59</div>
+          <div class="small">SECONDS</div>
+        </div>
+      </div>
+      <p class="lead mx-auto" style="max-width: 700px;">Prebook now and  <span class="text-primary fw-bold">unlock exclusive perks</span> that are available only before launch!</p>
+    </div>
+
+    <div class="row g-4 mt-2">
+      <div class="col-lg-7">
+        <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-scale">
+          <div class="card-body p-4 p-md-5">
+            <div class="d-flex align-items-center mb-4">
+              <div class="bg-warning rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center" style="width: 48px; height: 48px;">
+                <i class="bi bi-star-fill text-dark fs-5"></i>
+              </div>
+              <div class="ms-3">
+                <h3 class="h4 mb-0">Early Access Package
+</h3>
+                <p class="text-muted mb-0">Only for the first 50 restaurants</p>
+              </div>
+            </div>
+
+            <div class="row g-4">
+              <div class="col-md-6">
+                <div class="d-flex hover-lift">
+                  <div class="bg-primary-subtle rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                    <i class="bi bi-check-lg text-primary"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="mb-1">Exclusive 5% Discount
+</h5>
+                    <p class="text-secondary small mb-0">Save big on the complete System</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="d-flex hover-lift">
+                  <div class="bg-primary-subtle rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                    <i class="bi bi-check-lg text-primary"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="mb-1">Complimentary Starter Kit</h5>
+                    <p class="text-secondary small mb-0">High-value bundle included</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="d-flex hover-lift">
+                  <div class="bg-primary-subtle rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                    <i class="bi bi-check-lg text-primary"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="mb-1">Priority Service</h5>
+                    <p class="text-secondary small mb-0">Jump the queue during launch</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="d-flex hover-lift">
+                  <div class="bg-primary-subtle rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                    <i class="bi bi-check-lg text-primary"></i>
+                  </div>
+                  <div class="ms-3">
+                    <h5 class="mb-1">Limited Availability</h5>
+                    <p class="text-secondary small mb-0">Only a few spots left!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5 pt-3">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <span class="text-muted">Prebooked:</span>
+                <div class="d-flex align-items-center">
+                  <div class="progress flex-grow-1" style="height: 8px; width: 200px;">
+                    <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <span class="ms-2 fw-bold">32/50</span>
+                </div>
+              </div>
+              <div class="alert alert-warning fade show mb-0 hover-lift" role="alert">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i> Hurry! Only 18 early access slots remain!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-5">
+        <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-scale">
+          <div class="card-header bg-primary text-white py-3">
+            <h4 class="mb-0 text-center">Claim Your Early Access Advantage</h4>
+          </div>
+          <div class="card-body p-4 p-md-5">
+            <form id="prebookForm" class="needs-validation" novalidate>
+              <div class="mb-3">
+                <label for="name" class="form-label">Full Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control hover-lift" id="name" placeholder="Your name" required>
+                <div class="invalid-feedback">Please enter your name</div>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                <input type="email" class="form-control hover-lift" id="email" placeholder="your@email.com" required>
+                <div class="invalid-feedback">Please enter a valid email</div>
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone <span class="text-danger">*</span></label>
+                <input type="tel" class="form-control hover-lift" id="phone" placeholder="+60 12 345 6789" required>
+                <div class="invalid-feedback">Please enter your phone number</div>
+              </div>
+              <div class="mb-4">
+                <label for="restaurant" class="form-label">Restaurant Name</label>
+                <input type="text" class="form-control hover-lift" id="restaurant" placeholder="Your restaurant name">
+              </div>
+              
+              <div class="bg-primary-subtle p-3 rounded-3 mb-4 hover-lift">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <h6 class="mb-0">Early Access Deal</h6>
+                    <small class="text-muted">One-time payment</small>
+                  </div>
+                  <div class="text-end">
+                    <div class="text-decoration-line-through text-muted small"></div>
+                    <div class="h4 mb-0 text-primary"></div>
+                  </div>
+                </div>
+              </div>
+              
+              <button type="submit" class="btn btn-primary w-100 py-3 fw-bold hover-grow hover-lift">
+                <i class="bi bi-lock-fill me-2"></i> Pre Book Now
+              </button>
+              
+              <div class="mt-3 text-center">
+                <div class="d-flex align-items-center justify-content-center">
+                  <i class="bi bi-shield-check text-success me-2"></i>
+                  <small class="text-muted"> No credit card required</small>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-5">

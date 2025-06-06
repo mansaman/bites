@@ -94,3 +94,113 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+
+
+
+
+// countdown
+function startCountdown24hr() {
+  const countdownHours = document.getElementById('countdown-hours');
+  const countdownMinutes = document.getElementById('countdown-minutes');
+  const countdownSeconds = document.getElementById('countdown-seconds');
+
+  // If any element is missing, stop
+  if (!countdownHours || !countdownMinutes || !countdownSeconds) return;
+
+  const STORAGE_KEY = 'bitesposCountdownStart';
+
+  // Get or set initial start time
+  let startTime = localStorage.getItem(STORAGE_KEY);
+  if (!startTime) {
+    startTime = new Date().toISOString();
+    localStorage.setItem(STORAGE_KEY, startTime);
+  }
+
+  function updateCountdown() {
+    const now = new Date();
+    const startedAt = new Date(localStorage.getItem(STORAGE_KEY));
+    const elapsed = now - startedAt;
+
+    const fullCycle = 24 * 60 * 60 * 1000; // 24 hours in ms
+    const remaining = fullCycle - (elapsed % fullCycle); // reset if over
+
+    const hours = Math.floor(remaining / (1000 * 60 * 60));
+    const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+
+    countdownHours.textContent = String(hours).padStart(2, '0');
+    countdownMinutes.textContent = String(minutes).padStart(2, '0');
+    countdownSeconds.textContent = String(seconds).padStart(2, '0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+}
+
+// Call it on DOM load
+document.addEventListener('DOMContentLoaded', function () {
+  startCountdown24hr();
+});
+
+
+
+// prebookin
+document.getElementById('prebookForm')?.addEventListener('submit', async function (e) {
+  e.preventDefault();
+  const form = this;
+
+  if (!form.checkValidity()) {
+    form.classList.add('was-validated');
+    return;
+  }
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalText = submitBtn.innerHTML;
+
+  // Loading state
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = `
+    <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+    Processing...
+  `;
+
+  const formData = {
+    name: document.getElementById('name').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    phone: document.getElementById('phone').value.trim(),
+    restaurant: document.getElementById('restaurant').value.trim(),
+    timestamp: new Date().toISOString()
+  };
+
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyR0hd69Sy_ukosvGbX_88Hb76EN8xUl758sUMAxIbsgoSCG5l7zdySbEmiFVn1OkAs/exec';
+
+  try {
+    await fetch(scriptURL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      mode: 'no-cors',
+      body: JSON.stringify(formData)
+    });
+
+    form.innerHTML = `
+      <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+        <i class="bi bi-check-circle-fill me-2"></i>
+        Thank you! Your prebooking has been received.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    `;
+  } catch (error) {
+    console.error('Submission error:', error);
+    form.insertAdjacentHTML('beforeend', `
+      <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+        Submission failed: ${error.message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    `);
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalText;
+  }
+});
