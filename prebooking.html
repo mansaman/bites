@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneTimePOS - The Last POS You'll Ever Buy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>.hero-gradient {
+        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
+    }
+    
+    .cta-glow {
+        box-shadow: 0 4px 15px rgba(56, 182, 255, 0.4);
+        transition: all 0.3s ease;
+    }
+    
+    .cta-glow:hover {
+        box-shadow: 0 6px 20px rgba(56, 182, 255, 0.6);
+        transform: translateY(-2px);
+    }
+    
+    .countdown-box {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(5px);
+    }
+    
+    .feature-icon {
+        background: linear-gradient(135deg, #38b6ff 0%, #2a8bf2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .early-bird-badge {
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+    
+    /* Form message styles */
+    .success-message {
+        background-color: #d1fae5;
+        color: #065f46;
+    }
+    
+    .error-message {
+        background-color: #fee2e2;
+        color: #b91c1c;
+    }
+    
+    /* Countdown animation */
+    .countdown-box div:first-child {
+        transition: all 0.3s ease;
+    }
+    
+    .countdown-box div:first-child.changing {
+        transform: scale(1.1);
+        color: #1d4ed8;
+    }</style>
+</head>
+<body class="font-sans">
+    <!-- Hero Section -->
+    <section class="hero-gradient py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="inline-flex items-center px-4 py-2 rounded-full bg-white text-blue-600 font-medium mb-6 shadow-sm">
+                <span class="early-bird-badge inline-block h-2 w-2 rounded-full bg-yellow-400 mr-2"></span>
+                Early Access Now Open
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                The <span class="text-blue-500">Subscription-Free</span> POS Revolution Is Coming
+            </h1>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-10">
+                Pay once. Own forever. No monthly fees. No hidden charges. Just powerful POS software designed to grow with your business.
+            </p>
+            
+            <!-- Countdown Timer -->
+            <div class="max-w-md mx-auto bg-white rounded-xl p-6 shadow-lg mb-12">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">Launching in:</h3>
+                <div class="grid grid-cols-4 gap-3">
+                    <div class="countdown-box rounded-lg p-3 text-center">
+                        <div class="text-3xl font-bold text-blue-600" id="days">00</div>
+                        <div class="text-xs uppercase text-gray-500">Days</div>
+                    </div>
+                    <div class="countdown-box rounded-lg p-3 text-center">
+                        <div class="text-3xl font-bold text-blue-600" id="hours">00</div>
+                        <div class="text-xs uppercase text-gray-500">Hours</div>
+                    </div>
+                    <div class="countdown-box rounded-lg p-3 text-center">
+                        <div class="text-3xl font-bold text-blue-600" id="minutes">00</div>
+                        <div class="text-xs uppercase text-gray-500">Minutes</div>
+                    </div>
+                    <div class="countdown-box rounded-lg p-3 text-center">
+                        <div class="text-3xl font-bold text-blue-600" id="seconds">00</div>
+                        <div class="text-xs uppercase text-gray-500">Seconds</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Early Access CTA -->
+            <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden">
+                <div class="p-8 sm:p-10">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Join the Waitlist Today</h3>
+                        <p class="text-gray-600">Limited spots available for early adopters</p>
+                    </div>
+                    
+                    <form id="waitlistForm" class="space-y-4">
+                        <div>
+                            <input type="email" id="email" name="email" required placeholder="Your business email" 
+                                   class="w-full px-5 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <input type="text" id="business" name="business" required placeholder="Your business name" 
+                                   class="w-full px-5 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div class="flex items-center">
+                            <input id="exclusive-offer" name="exclusive-offer" type="checkbox" 
+                                   class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <label for="exclusive-offer" class="ml-2 text-sm text-gray-700">
+                                I want exclusive early bird pricing
+                            </label>
+                        </div>
+                        <button type="submit" id="submitBtn" 
+                                class="w-full cta-glow bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg transition duration-300">
+                            <i class="fas fa-lock-open mr-2"></i> Secure My Early Access
+                        </button>
+                        <p class="text-xs text-gray-500 text-center">
+                            <i class="fas fa-shield-alt mr-1"></i> No payment required now. We'll notify you when we're ready.
+                        </p>
+                    </form>
+                    <div id="formMessage" class="hidden mt-4 p-3 rounded text-sm text-center"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rest of your sections remain the same -->
+    <!-- Benefits, Testimonial, FAQ, Final CTA sections... -->
+
+    <script >
+document.addEventListener('DOMContentLoaded', function() {
+    // Set launch date to next month's first day at 9:00 AM
+    const now = new Date();
+    const countDownDate = new Date();
+    countDownDate.setMonth(now.getMonth() + 1);
+    countDownDate.setDate(1);
+    countDownDate.setHours(9, 0, 0, 0);
+
+    // Smooth countdown timer with animations
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+        
+        // Calculate time units
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        // Get elements
+        const daysEl = document.getElementById("days");
+        const hoursEl = document.getElementById("hours");
+        const minsEl = document.getElementById("minutes");
+        const secsEl = document.getElementById("seconds");
+        
+        // Animate changes
+        if (daysEl.textContent !== days.toString().padStart(2, '0')) {
+            daysEl.classList.add('changing');
+            setTimeout(() => {
+                daysEl.textContent = days.toString().padStart(2, '0');
+                daysEl.classList.remove('changing');
+            }, 150);
+        }
+        
+        if (hoursEl.textContent !== hours.toString().padStart(2, '0')) {
+            hoursEl.classList.add('changing');
+            setTimeout(() => {
+                hoursEl.textContent = hours.toString().padStart(2, '0');
+                hoursEl.classList.remove('changing');
+            }, 150);
+        }
+        
+        if (minsEl.textContent !== minutes.toString().padStart(2, '0')) {
+            minsEl.classList.add('changing');
+            setTimeout(() => {
+                minsEl.textContent = minutes.toString().padStart(2, '0');
+                minsEl.classList.remove('changing');
+            }, 150);
+        }
+        
+        // Always update seconds with animation
+        secsEl.classList.add('changing');
+        setTimeout(() => {
+            secsEl.textContent = seconds.toString().padStart(2, '0');
+            secsEl.classList.remove('changing');
+        }, 150);
+        
+        if (distance < 0) {
+            clearInterval(countdownInterval);
+            document.querySelectorAll('.countdown-box div:first-child').forEach(el => {
+                el.textContent = "00";
+                el.classList.add('text-green-500');
+            });
+        }
+    }
+
+    // Update immediately and then every second
+    updateCountdown();
+    const countdownInterval = setInterval(updateCountdown, 1000);
+
+    // Form submission to Google Sheets
+    const form = document.getElementById('waitlistForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formMessage = document.getElementById('formMessage');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processing...';
+        submitBtn.disabled = true;
+        
+        // Get form data
+        const formData = new FormData(form);
+        const data = {
+            email: formData.get('email'),
+            business: formData.get('business'),
+            wantsOffer: formData.get('exclusive-offer') ? 'Yes' : 'No',
+            timestamp: new Date().toLocaleString()
+        };
+        
+        // Send data to Google Sheets
+        const scriptURL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+        
+        fetch(scriptURL, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Show success message
+            formMessage.textContent = 'Thank you! You have been added to our waitlist.';
+            formMessage.className = 'success-message';
+            formMessage.classList.remove('hidden');
+            
+            // Reset form
+            form.reset();
+        })
+        .catch(error => {
+            // Show error message
+            formMessage.textContent = 'There was an error. Please try again or contact us.';
+            formMessage.className = 'error-message';
+            formMessage.classList.remove('hidden');
+            console.error('Error:', error);
+        })
+        .finally(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                formMessage.classList.add('hidden');
+            }, 5000);
+        });
+    });
+
+    // FAQ toggle functionality
+    document.querySelectorAll('.faq-toggle').forEach(button => {
+        button.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            const icon = this.querySelector('i');
+            
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        });
+    });
+});
+    </script>
+</body>
+</html>
